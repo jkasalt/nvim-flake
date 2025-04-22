@@ -30,6 +30,10 @@
             };
           };
 
+          checks = {
+            buildsPackage = config.packages.default;
+          };
+
           packages.default = inputs.mnw.lib.wrap pkgs {
             initLua = ''require("jka")'';
 
@@ -51,6 +55,9 @@
                   nvim-autopairs
                   nvim-ts-autotag
                   nvim-lspconfig
+                  nvim-treesitter
+                  nvim-treesitter-context
+                  nvim-treesitter-textobjects
                   vscode-nvim
                   none-ls-nvim
                   lsp-format-nvim
@@ -60,7 +67,11 @@
                 pkgs.vimPlugins.nvim-treesitter.withAllGrammars
               ];
             extraBinPath = builtins.attrValues {
-              inherit (pkgs) lua-language-server vscode-langservers-extracted nil;
+              inherit (pkgs)
+                lua-language-server
+                vscode-langservers-extracted
+                nil
+                ;
             };
           };
 
