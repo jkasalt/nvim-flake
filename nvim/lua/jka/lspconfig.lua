@@ -31,6 +31,7 @@ local servers = {
   },
   jsonls = {},
   nil_ls = {},
+  ocamllsp = {},
 }
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()

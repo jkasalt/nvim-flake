@@ -61,18 +61,19 @@
                   vscode-nvim
                   none-ls-nvim
                   lsp-format-nvim
+                  rustaceanvim
                   ;
               }
               ++ [
                 pkgs.vimPlugins.nvim-treesitter.withAllGrammars
               ];
-            extraBinPath = builtins.attrValues {
-              inherit (pkgs)
-                lua-language-server
-                vscode-langservers-extracted
-                nil
-                ;
-            };
+            extraBinPath = with pkgs; [
+              lua-language-server
+              vscode-langservers-extracted
+              nil
+              ocamlPackages.ocaml-lsp
+              rust-analyzer
+            ];
           };
 
           devShells.default = pkgs.mkShellNoCC {
