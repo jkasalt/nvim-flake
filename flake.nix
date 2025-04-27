@@ -62,6 +62,7 @@
                   none-ls-nvim
                   lsp-format-nvim
                   rustaceanvim
+                  zk-nvim
                   ;
               }
               ++ [
