@@ -63,6 +63,7 @@
                   lsp-format-nvim
                   rustaceanvim
                   zk-nvim
+                  snacks-nvim
                   ;
               }
               ++ [
