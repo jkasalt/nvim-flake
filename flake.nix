@@ -40,9 +40,7 @@
             plugins = {
               dev.jka = {
                 pure = ./nvim;
-                impure = [
-                  "~/Projects/nvim-flake/nvim"
-                ];
+                impure = "~/Projects/nvim-flake/nvim";
               };
 
               start =
