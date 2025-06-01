@@ -37,39 +37,42 @@
           packages.default = inputs.mnw.lib.wrap pkgs {
             initLua = ''require("jka")'';
 
-            devExcludedPlugins = [ ./nvim ];
+            plugins = {
+              dev.jka = {
+                pure = ./nvim;
+                impure = [
+                  "~/Projects/nvim-flake/nvim"
+                ];
+              };
 
-            devPluginPaths = [
-              "~/Projects/nvim-flake/nvim"
-            ];
-
-            plugins =
-              builtins.attrValues {
-                inherit (pkgs.vimPlugins)
-                  oil-nvim
-                  lazydev-nvim
-                  mini-nvim
-                  blink-cmp
-                  which-key-nvim
-                  friendly-snippets
-                  nvim-autopairs
-                  nvim-ts-autotag
-                  nvim-lspconfig
-                  nvim-treesitter
-                  nvim-treesitter-context
-                  nvim-treesitter-textobjects
-                  vscode-nvim
-                  none-ls-nvim
-                  lsp-format-nvim
-                  rustaceanvim
-                  haskell-tools-nvim
-                  zk-nvim
-                  snacks-nvim
-                  ;
-              }
-              ++ [
-                pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-              ];
+              start =
+                builtins.attrValues {
+                  inherit (pkgs.vimPlugins)
+                    oil-nvim
+                    lazydev-nvim
+                    mini-nvim
+                    blink-cmp
+                    which-key-nvim
+                    friendly-snippets
+                    nvim-autopairs
+                    nvim-ts-autotag
+                    nvim-lspconfig
+                    nvim-treesitter
+                    nvim-treesitter-context
+                    nvim-treesitter-textobjects
+                    vscode-nvim
+                    none-ls-nvim
+                    lsp-format-nvim
+                    rustaceanvim
+                    haskell-tools-nvim
+                    zk-nvim
+                    snacks-nvim
+                    ;
+                }
+                ++ [
+                  pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+                ];
+            };
             extraBinPath = with pkgs; [
               lua-language-server
               vscode-langservers-extracted
