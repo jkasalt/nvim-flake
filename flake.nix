@@ -72,6 +72,7 @@
               vscode-langservers-extracted
               nil
               ocamlPackages.ocaml-lsp
+              haskellPackages.haskell-language-server
               rust-analyzer
             ];
           };
