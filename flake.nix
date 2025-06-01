@@ -62,6 +62,7 @@
                   none-ls-nvim
                   lsp-format-nvim
                   rustaceanvim
+                  haskell-tools-nvim
                   zk-nvim
                   snacks-nvim
                   ;
