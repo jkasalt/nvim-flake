@@ -1,5 +1,4 @@
 require("mini.ai").setup()
-require("mini.animate").setup()
 require("mini.basics").setup()
 require("mini.bracketed").setup()
 require("mini.cursorword").setup()
