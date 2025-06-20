@@ -14,7 +14,11 @@
       imports = [ inputs.treefmt-nix.flakeModule ];
 
       perSystem =
-        { config, pkgs, ... }:
+        {
+          config,
+          pkgs,
+          ...
+        }:
         {
           treefmt.programs = {
             nixfmt.enable = true;
@@ -71,7 +75,6 @@
               lua-language-server
               vscode-langservers-extracted
               nil
-              ocamlPackages.ocaml-lsp
               haskellPackages.haskell-language-server
               rust-analyzer
             ];
