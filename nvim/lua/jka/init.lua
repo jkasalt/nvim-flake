@@ -16,3 +16,5 @@ require("jka.autopairs")
 require("jka.none-ls")
 require("jka.treesitter")
 require("jka.zettelkasten")
+
+require("colorizer").setup()

@@ -54,6 +54,7 @@
                 start =
                   with pkgs.vimPlugins;
                   [
+                    nvim-colorizer-lua
                     everforest
                     zenbones-nvim
                     lush-nvim
