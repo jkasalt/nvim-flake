@@ -52,35 +52,52 @@
                 };
 
                 start =
-                  with pkgs.vimPlugins;
-                  [
-                    nvim-colorizer-lua
-                    everforest
-                    zenbones-nvim
-                    lush-nvim
-                    tokyonight-nvim
-                    oil-nvim
-                    lazydev-nvim
-                    mini-nvim
-                    blink-cmp
-                    which-key-nvim
-                    friendly-snippets
-                    nvim-autopairs
-                    nvim-ts-autotag
-                    nvim-lspconfig
-                    nvim-treesitter
-                    nvim-treesitter-context
-                    nvim-treesitter-textobjects
-                    vscode-nvim
-                    none-ls-nvim
-                    lsp-format-nvim
-                    rustaceanvim
-                    haskell-tools-nvim
-                    zk-nvim
-                    snacks-nvim
-                    nvim-treesitter.withAllGrammars
-                  ]
-                  ++ [ extraPlugins.sarnai-nvim ];
+                  let
+                    categories = with pkgs.vimPlugins; {
+                      colorschemes = [
+                        everforest
+                        zenbones-nvim
+                        lush-nvim
+                        tokyonight-nvim
+                        vscode-nvim
+                        extraPlugins.sarnai-nvim
+                      ];
+                      git-helpers = [
+                        neogit
+                        gitsigns-nvim
+                      ];
+                      misc = [
+                        nvim-colorizer-lua
+                        mini-nvim
+                        which-key-nvim
+                        snacks-nvim
+                      ];
+                      exploration = [
+                        oil-nvim
+                      ];
+                      language-helpers = [
+                        lazydev-nvim
+                        rustaceanvim
+                        haskell-tools-nvim
+                        zk-nvim
+                      ];
+                      fundamental = [
+                        blink-cmp
+                        friendly-snippets
+                        nvim-autopairs
+                        nvim-ts-autotag
+                        nvim-lspconfig
+                        nvim-treesitter
+                        nvim-treesitter-context
+                        nvim-treesitter-textobjects
+                        none-ls-nvim
+                        lsp-format-nvim
+                        nvim-treesitter.withAllGrammars
+                      ];
+                    };
+                  in
+                  builtins.concatLists (builtins.attrValues categories);
+
               };
 
               extraBinPath = with pkgs; [
