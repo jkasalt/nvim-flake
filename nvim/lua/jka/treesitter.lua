@@ -104,7 +104,6 @@ require("nvim-treesitter.configs").setup({
 })
 
 require("treesitter-context").setup({
-  separator = "-",
   max_lines = "20%",
   mode = "topline",
 })
