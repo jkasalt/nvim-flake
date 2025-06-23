@@ -14,16 +14,4 @@ WK.add({
   { "<leader>tl", toggle_virtual_lines, desc = "toggle virtual line diagnostics" },
 })
 
-vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = true })
-
-local document_highlight = vim.api.nvim_create_augroup("DocumentHighlight", { clear = true })
-
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  group = document_highlight,
-  callback = b.document_highlight,
-})
-
-vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-  group = document_highlight,
-  callback = b.clear_references,
-})
+vim.diagnostic.config({ virtual_text = true })
