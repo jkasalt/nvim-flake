@@ -106,6 +106,7 @@
                 nil
                 haskellPackages.haskell-language-server
                 rust-analyzer
+                vtsls
               ];
             };
 
