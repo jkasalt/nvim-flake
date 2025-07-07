@@ -105,6 +105,7 @@
                 vscode-langservers-extracted
                 nil
                 haskellPackages.haskell-language-server
+                beancount-language-server
                 rust-analyzer
                 vtsls
               ];

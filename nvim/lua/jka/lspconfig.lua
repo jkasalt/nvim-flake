@@ -32,6 +32,7 @@ local servers = {
   jsonls = {},
   nil_ls = {},
   vtsls = {},
+  beancount = {},
 }
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
