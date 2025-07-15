@@ -14,6 +14,5 @@ WK.add({
   { "<leader>tl", toggle_virtual_lines, desc = "toggle virtual line diagnostics" },
 })
 
-vim.lsp.inlay_hint.enable(true)
-
-vim.diagnostic.config({ virtual_text = true })
+require("tiny-inline-diagnostic").setup()
+vim.diagnostic.config({ virtual_text = false })

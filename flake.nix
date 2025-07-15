@@ -40,7 +40,7 @@
 
           packages.default =
             let
-              extraPlugins = pkgs.callPackage ./nix/plugins.nix { inherit (pkgs.vimUtils) buildVimPlugin; };
+              extraPlugins = pkgs.callPackage ./nix/plugins.nix { };
             in
             inputs.mnw.lib.wrap pkgs {
               initLua = ''require("jka")'';
@@ -48,7 +48,7 @@
               plugins = {
                 dev.jka = {
                   pure = ./nvim;
-                  impure = "~/Projects/nvim-flake/nvim";
+                  impure = "~/nvim-flake/nvim";
                 };
 
                 start =
@@ -61,6 +61,8 @@
                         tokyonight-nvim
                         vscode-nvim
                         extraPlugins.sarnai-nvim
+                        seoul256-vim
+                        extraPlugins.kanso-nvim
                       ];
                       git-helpers = [
                         neogit
@@ -80,6 +82,9 @@
                         rustaceanvim
                         haskell-tools-nvim
                         zk-nvim
+                      ];
+                      lsp-helpers = [
+                        tiny-inline-diagnostic-nvim
                       ];
                       fundamental = [
                         blink-cmp
@@ -106,6 +111,7 @@
                 nil
                 haskellPackages.haskell-language-server
                 beancount-language-server
+                beancount
                 rust-analyzer
                 vtsls
               ];

@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.nix_flake_fmt,
-    null_ls.builtins.formatting.bean_check,
+    null_ls.builtins.diagnostics.bean_check,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

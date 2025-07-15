@@ -1,7 +1,7 @@
 vim.keymap.set("n", " ", "<Nop>", { silent = true, noremap = true })
 vim.g.mapleader = " "
 
-vim.cmd.colorscheme("sarnai")
+vim.cmd.colorscheme("kanso")
 
 WK = require("which-key")
 WK.setup()
