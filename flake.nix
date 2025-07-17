@@ -63,9 +63,10 @@
                         extraPlugins.sarnai-nvim
                         seoul256-vim
                         extraPlugins.kanso-nvim
+                        kanagawa-nvim
                       ];
                       git-helpers = [
-                        neogit
+                        vim-fugitive
                         gitsigns-nvim
                       ];
                       misc = [
@@ -74,7 +75,7 @@
                         which-key-nvim
                         snacks-nvim
                       ];
-                      exploration = [
+                      coding-support = [
                         oil-nvim
                       ];
                       language-helpers = [
@@ -83,7 +84,7 @@
                         haskell-tools-nvim
                         zk-nvim
                       ];
-                      lsp-helpers = [
+                      lsp = [
                         tiny-inline-diagnostic-nvim
                       ];
                       fundamental = [
