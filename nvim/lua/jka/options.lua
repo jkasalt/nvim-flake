@@ -3,6 +3,7 @@ vim.opt.scrolloff = 7
 WK.add({
   { "L", ":bn<cr>", desc = "next buffer" },
   { "H", ":bp<cr>", desc = "previous buffer" },
+  { mode = "t", "<esc><esc>", "<C-\\><C-n>", desc = "exit terminal mode" },
 })
 
 -- Set tab width to 4 spaces
