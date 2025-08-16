@@ -18,5 +18,6 @@ require("jka.oil")
 require("jka.options")
 require("jka.treesitter")
 require("jka.zettelkasten")
+require("jka.orgmode")
 
 require("colorizer").setup()

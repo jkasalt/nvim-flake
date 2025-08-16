@@ -74,6 +74,7 @@
                         mini-nvim
                         which-key-nvim
                         snacks-nvim
+                        orgmode
                       ];
                       coding-support = [
                         oil-nvim
