@@ -1,9 +1,18 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
-    mnw.url = "github:Gerg-L/mnw";
+    mnw = {
+      url = "github:Gerg-L/mnw";
+    };
     flake-parts.url = "github:hercules-ci/flake-parts";
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    fff-nvim = {
+      url = "github:dmtrKovalenko/fff.nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -17,6 +26,7 @@
         {
           config,
           pkgs,
+          system,
           ...
         }:
         {
@@ -40,7 +50,9 @@
 
           packages.default =
             let
-              extraPlugins = pkgs.callPackage ./nix/plugins.nix { };
+              extraPlugins = pkgs.callPackage ./nix/plugins.nix { } // {
+                inherit (inputs.fff-nvim.outputs.packages.${system}) fff-nvim;
+              };
             in
             inputs.mnw.lib.wrap pkgs {
               initLua = ''require("jka")'';
@@ -55,15 +67,12 @@
                   let
                     categories = with pkgs.vimPlugins; {
                       colorschemes = [
-                        everforest
-                        zenbones-nvim
-                        lush-nvim
-                        tokyonight-nvim
                         vscode-nvim
                         extraPlugins.sarnai-nvim
                         seoul256-vim
                         extraPlugins.kanso-nvim
-                        kanagawa-nvim
+                        modus-themes-nvim
+                        bamboo-nvim
                       ];
                       git-helpers = [
                         vim-fugitive
@@ -78,6 +87,7 @@
                       ];
                       coding-support = [
                         oil-nvim
+                        extraPlugins.fff-nvim
                       ];
                       language-helpers = [
                         lazydev-nvim

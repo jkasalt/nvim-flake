@@ -1,8 +1,6 @@
 vim.keymap.set("n", " ", "<Nop>", { silent = true, noremap = true })
 vim.g.mapleader = " "
 
-vim.cmd.colorscheme("kanso")
-
 WK = require("which-key")
 WK.setup()
 
@@ -19,5 +17,7 @@ require("jka.options")
 require("jka.treesitter")
 require("jka.zettelkasten")
 require("jka.orgmode")
+require("jka.colorschemes")
+require("jka.picker")
 
 require("colorizer").setup()

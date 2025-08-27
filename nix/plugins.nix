@@ -1,4 +1,8 @@
-{ vimUtils, fetchFromGitHub }:
+{
+  vimUtils,
+  fetchFromGitHub,
+  ...
+}:
 {
   sarnai-nvim = vimUtils.buildVimPlugin {
     pname = "sarnai-nvim";
