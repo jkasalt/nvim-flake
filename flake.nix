@@ -93,7 +93,7 @@
                         lazydev-nvim
                         rustaceanvim
                         haskell-tools-nvim
-                        zk-nvim
+                        lean-nvim
                       ];
                       lsp = [
                         tiny-inline-diagnostic-nvim
@@ -119,13 +119,9 @@
 
               extraBinPath = with pkgs; [
                 lua-language-server
-                vscode-langservers-extracted
                 nil
                 haskellPackages.haskell-language-server
-                beancount-language-server
-                beancount
                 rust-analyzer
-                vtsls
               ];
             };
 
