@@ -103,7 +103,6 @@
                         friendly-snippets
                         nvim-autopairs
                         nvim-ts-autotag
-                        nvim-lspconfig
                         nvim-treesitter
                         nvim-treesitter-context
                         nvim-treesitter-textobjects
