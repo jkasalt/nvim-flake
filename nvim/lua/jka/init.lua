@@ -19,6 +19,5 @@ require("jka.treesitter")
 require("jka.orgmode")
 require("jka.colorschemes")
 require("jka.picker")
-require("jka.lean")
 
 require("colorizer").setup()

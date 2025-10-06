@@ -93,7 +93,6 @@
                         lazydev-nvim
                         rustaceanvim
                         haskell-tools-nvim
-                        lean-nvim
                       ];
                       lsp = [
                         tiny-inline-diagnostic-nvim
