@@ -85,6 +85,11 @@
                         snacks-nvim
                         orgmode
                       ];
+                      rest-nvim = [
+                        rest-nvim
+                        nvim-nio
+                        fidget-nvim
+                      ];
                       coding-support = [
                         oil-nvim
                         extraPlugins.fff-nvim
@@ -114,6 +119,11 @@
                   builtins.concatLists (builtins.attrValues categories);
 
               };
+
+              extraLuaPackages = ps: [
+                ps.mimetypes
+                ps.xml2lua
+              ];
 
               extraBinPath = with pkgs; [
                 lua-language-server
