@@ -9,10 +9,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fff-nvim = {
-      url = "github:dmtrKovalenko/fff.nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -26,7 +22,6 @@
         {
           config,
           pkgs,
-          system,
           ...
         }:
         {
@@ -50,9 +45,7 @@
 
           packages.default =
             let
-              extraPlugins = pkgs.callPackage ./nix/plugins.nix { } // {
-                inherit (inputs.fff-nvim.outputs.packages.${system}) fff-nvim;
-              };
+              extraPlugins = pkgs.callPackage ./nix/plugins.nix { };
             in
             inputs.mnw.lib.wrap pkgs {
               initLua = ''require("jka")'';
@@ -92,7 +85,6 @@
                       ];
                       coding-support = [
                         oil-nvim
-                        extraPlugins.fff-nvim
                       ];
                       language-helpers = [
                         lazydev-nvim
